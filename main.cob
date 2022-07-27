@@ -1,16 +1,36 @@
-000100 IDENTIFICATION DIVISION.
-000200 PROGRAM-ID. OBTAININPUT.
+000100* IDENTIFICATION DIVISION.
+000200* PROGRAM-ID. OBTAININPUT.
 000300
+      * DATA DIVISION.
+      * WORKING-STORAGE SECTION.
+      * 01 NAME PIC A(20).
+       
+000400* PROCEDURE DIVISION.
+000500*   DISPLAY 'Please enter your name: '.
+      *   ACCEPT NAME.
+      *   DISPLAY "It is nice to meet you, " NAME.
+000600* STOP RUN.
+      * END PROGRAM OBTAININPUT.
+
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. 'BMICALC'.
+       AUTHOR. ME.
+
+       ENVIRONMENT DIVISION.
+
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 NAME PIC A(20).
-       
-000400 PROCEDURE DIVISION.
-000500   DISPLAY 'Please enter your name: '.
-         ACCEPT NAME.
-         DISPLAY "It is nice to meet you, " NAME.
-000600 STOP RUN.
-       END PROGRAM OBTAININPUT.
+       01 WEIGHT PIC 999.
+       01 HEIGHT_INCHES PIC 999.
+       01 BMI PIC 999V99.
 
-      
+       PROCEDURE DIVISION.
+         DISPLAY 'Enter your weight: '.
+         ACCEPT WEIGHT.
+         DISPLAY 'Enter your height in inches: '.
+         ACCEPT HEIGHT_INCHES.
+         COMPUTE BMI = WEIGHT * 703 / (HEIGHT_INCHES * HEIGHT_INCHES).
+         DISPLAY 'Your BMI is ', BMI.
+       STOP RUN.
+       END PROGRAM BMICALC.
       
